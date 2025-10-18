@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 07:27:33 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 08:05:00 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,12 @@ const char* Span::OneNumber::what() const noexcept
 const char* Span::NoSpanFounded::what() const noexcept
 {
     return "No Span is Found!";
+}
+
+void Span::addNumber(int number)
+{
+    if(count >= size)
+        throw Outofrange();
+    sp.push_back(number);
+    count++;
 }
