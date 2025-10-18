@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:06:14 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 04:56:36 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 07:33:59 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 
 class Nomatch:public std::exception
 {
-    const char* what() const noexcept
-    {
-        return "No match found! ";
-    }
+    public:
+        const char* what() const noexcept
+        {
+            return "No match found! ";
+        }
 };
 
 
