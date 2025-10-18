@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:58:21 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 07:11:21 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 08:03:38 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,28 @@ public:
     Span(const Span& other);
     Span& operator=(const Span& other);
     ~Span();
+    //member functions
+    void addNumber(int number);
     //Exception cases
     class Outofrange:public std::exception
     {
-      const char* what()const noexcept;  
+        public:
+            const char* what()const noexcept;  
     };
     class NoNumbers:public std::exception
     {
-      const char* what() const noexcept;  
+        public:
+            const char* what()const noexcept;  
     };
     class NoSpanFounded:public std::exception
     {
-      const char* what() const noexcept;  
+        public:
+            const char* what()const noexcept;  
     };
     class OneNumber:public std::exception
     {
-      const char* what() const noexcept;  
+        public:
+            const char* what()const noexcept;  
     };
 };
 
