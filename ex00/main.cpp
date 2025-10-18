@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:51:31 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 04:36:09 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 04:45:00 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
+    std::cout << "================= TEST 2 ================\n";
+    try
+    {
+        std::vector<int> num = {10, 11, 22, 33, 44, 55, 66, 77,99, 88, 77, 100};
+        std::vector<int>::iterator res = easyfind(num, 100);
+        std::cout<< "RES: " << *res << std::endl;
+        std::vector<int>::iterator res1 = easyfind(num, 1);
+        std::cout<< "RES: " << *res1 << std::endl;    
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     
     return 0;
 }
