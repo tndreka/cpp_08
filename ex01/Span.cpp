@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 07:20:10 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 07:27:33 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,23 @@ Span::Span(unsigned int n) : sp(), size(n), count(0)
 
 Span::~Span()
 {}
+
+const char* Span::Outofrange::what() const noexcept
+{
+    return "Container is FULL!";
+}
+
+const char* Span::NoNumbers::what() const noexcept
+{
+    return "No Numbers in Container!";
+}
+
+const char* Span::OneNumber::what() const noexcept
+{
+    return "One Number in Container!";
+}
+
+const char* Span::NoSpanFounded::what() const noexcept
+{
+    return "No Span is Found!";
+}
