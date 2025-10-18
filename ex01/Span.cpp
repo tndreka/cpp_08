@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 08:05:00 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 08:59:32 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,14 @@ void Span::addNumber(int number)
         throw Outofrange();
     sp.push_back(number);
     count++;
+}
+
+//debug
+void Span::print_vect()const
+{
+    for (unsigned int i = 0; i < count; i++)
+    {
+        std::cout << sp[i] << " ";
+    }
+    std::cout << std::endl;
 }

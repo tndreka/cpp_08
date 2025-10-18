@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:58:21 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 08:03:38 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 08:57:37 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ public:
     ~Span();
     //member functions
     void addNumber(int number);
+    unsigned int shortestSpan();
+    unsigned int longestSpan();
+    //debug
+    void print_vect() const;
     //Exception cases
     class Outofrange:public std::exception
     {
