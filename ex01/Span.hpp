@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:58:21 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 08:57:37 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 11:00:09 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <limits>
 
 class Span
 {
@@ -35,6 +36,16 @@ public:
     unsigned int longestSpan();
     //debug
     void print_vect() const;
+    //helper function
+    template<typename T>
+    void insert(T first, T last)
+    {
+        size_t distance = std::distance(first, last);
+        if(sp.size() + distance > size)
+            throw Outofrange();
+        sp.insert(sp.end(), first, last);
+        count += distance;
+    }
     //Exception cases
     class Outofrange:public std::exception
     {
@@ -42,11 +53,6 @@ public:
             const char* what()const noexcept;  
     };
     class NoNumbers:public std::exception
-    {
-        public:
-            const char* what()const noexcept;  
-    };
-    class NoSpanFounded:public std::exception
     {
         public:
             const char* what()const noexcept;  

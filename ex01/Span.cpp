@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 09:39:27 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 10:54:04 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ const char* Span::NoNumbers::what() const noexcept
 const char* Span::OneNumber::what() const noexcept
 {
     return "One Number in Container!";
-}
-
-const char* Span::NoSpanFounded::what() const noexcept
-{
-    return "No Span is Found!";
 }
 
 void Span::addNumber(int number)
@@ -117,7 +112,7 @@ unsigned int Span::longestSpan()
         longest = sp[1] - sp[0];
     for (unsigned int i = 0; i < count; i++)
     {
-        for (unsigned int j = i + 1; j < count; i++)
+        for (unsigned int j = i + 1; j < count; j++)
         {
             unsigned int diff;
             if(sp[i] > sp[j])

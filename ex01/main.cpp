@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:57:39 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 10:31:53 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 11:02:00 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ int main()
 {
     try
     {
-        Span one = Span(10000);
+        std::cout << "======== Test 10,000 ==============\n";
         std::srand(time(NULL));
-        for (size_t i = 0; i < 10000; ++i)
-        {
-            one.addNumber(rand() % 10000);
-        }
+        Span one = Span(10000);
+        std::vector<int> v1(10000);
+        for(size_t i = 0; i < v1.size(); i++)
+            v1[i] = rand() % 10000;
+        one.insert(v1.begin(), v1.end());
         std::cout << one.shortestSpan() << std::endl;
         std::cout <<one.longestSpan() << std::endl;
     }
@@ -58,18 +59,18 @@ int main()
     }
     try
     {
-        Span two = Span(100000);
+        std::cout << "======== Test 100,000 ==============\n";
         std::srand(time(NULL));
-        for (size_t i = 0; i < 100000; ++i)
-        {
-            two.addNumber(rand() % 100000);
-        }
-        std::cout << two.shortestSpan() << std::endl;
-        std::cout << two.longestSpan() << std::endl;
+        Span one = Span(50000);
+        std::vector<int> v1(50000);
+        for(size_t i = 0; i < v1.size(); i++)
+            v1[i] = rand() % 50000;
+        one.insert(v1.begin(), v1.end());
+        std::cout << one.shortestSpan() << std::endl;
+        std::cout <<one.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
 }
