@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:51:31 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 04:45:00 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 04:56:18 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int main()
 {
     
+    std::cout << "================= TEST 1 ================\n";
     try
     {
         
-        std::cout << "================= TEST 1 ================\n";
         std::vector<int> nums = {10, 11, 22, 33, 44, 55, 66, 77, 7, 8, 9, 99, 88, 77, 100};
         ::easyfind(nums, 111);
     }
@@ -39,7 +39,37 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
+    std::cout << "================= TEST 3 ================\n";
+    try
+    {
+        std::vector<int> v;
+        for (size_t i = 0; i < 100; i++)
+        {
+            v.push_back(i);
+        }
+        std::vector<int>::iterator r = easyfind(v, 55);
+        std::cout << "Match found: " << *r << std::endl;
+        std::cout << "Match found: " << *easyfind(v, 11) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    std::cout << "================= TEST 4 ================\n";
+    try
+    {
+        std::list<int> l;
+        for (size_t i = 0; i < 555; i++)
+        {
+            l.push_back(i);
+        }
+        std::cout << "Match found: " << *easyfind(l, 111) << std::endl;
+        std::cout << "Match found: " << *easyfind(l, 556) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
     return 0;
 }

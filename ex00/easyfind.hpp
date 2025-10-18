@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:06:14 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 03:14:29 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 04:56:36 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 #include <vector> // for vector container
+#include <list>
 
 class Nomatch:public std::exception
 {
