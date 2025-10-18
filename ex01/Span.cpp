@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 07:15:22 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 07:20:10 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,21 @@ Span::Span() : sp(), size(0), count(0)
 {}
 
 Span::Span(const Span& other): sp(other.sp), size(other.size), count(other.count)
+{}
+
+Span& Span::operator=(const Span& other)
+{
+    if (this != &other)
+    {
+        sp = other.sp;
+        size = other.size;
+        count = other.count;
+    }
+    return *this;
+}
+
+Span::Span(unsigned int n) : sp(), size(n), count(0)
+{}
+
+Span::~Span()
 {}
