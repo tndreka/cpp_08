@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:06:14 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 03:08:23 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 03:14:29 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ class Nomatch:public std::exception
 template<typename T>
 typename T::iterator easyfind(T& container, int value)
 {
-    try
-    {
-        for (typename T::iterator i = container.begin(); i != container.end(); ++i)
+    for (typename T::iterator i = container.begin(); i != container.end(); ++i)
         {
             if (*i == value)
             {
@@ -40,11 +38,6 @@ typename T::iterator easyfind(T& container, int value)
             }
         }
         throw Nomatch();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
 }
 
 #endif
