@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 09:15:43 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/18 09:22:09 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,20 @@ unsigned int Span::shortestSpan()
         shortest = sp[0] - sp[1];
     else
         shortest = sp[1] - sp[0];
+    //all pairs
+    for (unsigned int i = 0; i < count; i++)
+    {
+        for (unsigned int j = 0; j < count; j++)
+        {
+            unsigned int difference;
+            if(sp[i] > sp[j])
+                difference = sp[i] - sp[j];
+            else
+                difference = sp[j] - sp[i];
+            if(difference < shortest)
+                shortest = difference;
+        }
+        
+    }
     return shortest;
 }
