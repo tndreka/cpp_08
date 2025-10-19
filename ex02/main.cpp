@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 11:03:28 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/19 19:44:14 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/19 19:50:45 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,17 @@ int main()
     ss.pop();
     std::cout << "The top element in the stack is after pop(): " << ss.top() << std::endl;
     std::cout << "The size in the stack is: " << ss.size() << std::endl;
-    
+    std::cout << "======== TEST CASE 2 ===============\n";
+    MutantStack<int> unit;
+    for (int i = 0; i < 8; i++)
+    {
+        unit.push(i * 5);
+    }
+    MutantStack<int>::iterator j = unit.begin();
+    for (; j != unit.end(); ++j)
+    {
+        std::cout << *j <<" ";
+    }
+    std::cout<<std::endl;
     return 0;
 }
