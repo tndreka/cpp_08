@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 11:04:01 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/19 19:31:12 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/19 19:40:30 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ class MutantStack:public std::stack<T, Container>
 
         // using is = to typdef but c++11 standart
         using iterator = typename std::stack<T, Container>::container_type::iterator;
-        
+        iterator begin(){return this->c.begin();}
+        iterator end(){return this->c.end();}
 };
 
 #endif
