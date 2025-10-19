@@ -6,7 +6,13 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 11:03:28 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 11:03:29 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/19 18:20:11 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MutantStack.hpp"
+
+int main()
+{
+    return 0;
+}
