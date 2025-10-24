@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:57:39 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 11:02:00 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/24 21:19:00 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,24 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
+    try
+    {
+        std::cout << "======== Testin range-base addNumber() ==============\n";
+        Span sp(10000);
+        std::vector<int> numbers;
+        for (size_t i = 0; i < 10000; i++)
+        {
+            numbers.push_back(rand() % 10000);
+        }
+        
+        sp.addNumber(numbers.begin(), numbers.end());
+        std::cout << "added 10000 numbers using range based template function\n";
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout <<sp.longestSpan() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }

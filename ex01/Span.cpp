@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 05:07:03 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 10:54:04 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/24 21:13:52 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,58 +70,30 @@ void Span::print_vect()const
 
 unsigned int Span::shortestSpan()
 {
-    unsigned int shortest;
     if(count == 0)
         throw NoNumbers();
     else if (count < 2)
         throw OneNumber();
-    //check first pair
-    if (sp[0] > sp[1])
-        shortest = sp[0] - sp[1];
-    else
-        shortest = sp[1] - sp[0];
-    //all pairs
-    for (unsigned int i = 0; i < count; i++)
+    std::vector<int> sorted = sp;
+    std::sort(sorted.begin(), sorted.end());
+    
+    unsigned int shortest_span= std::abs(sorted[1] - sorted[0]);
+    for (unsigned int i = 2; i < count; i++)
     {
-        for (unsigned int j = i + 1; j < count; j++)
-        {
-            unsigned int difference;
-            if(sp[i] > sp[j])
-                difference = sp[i] - sp[j];
-            else
-                difference = sp[j] - sp[i];
-            if(difference < shortest)
-                shortest = difference;
-        }
-        
+        unsigned int difference =std::abs(sorted[i] - sorted[i - 1]);
+        if(difference < shortest_span)
+            shortest_span = difference;
     }
-    return shortest;
+    return shortest_span;
 }
 
 unsigned int Span::longestSpan()
 {
-    unsigned int longest;
     if (count == 0)
         throw NoNumbers();
     else if (count < 2)
         throw OneNumber();
-    //check first pair
-    if (sp[0] > sp[1])
-        longest = sp[0] - sp[1];
-    else
-        longest = sp[1] - sp[0];
-    for (unsigned int i = 0; i < count; i++)
-    {
-        for (unsigned int j = i + 1; j < count; j++)
-        {
-            unsigned int diff;
-            if(sp[i] > sp[j])
-                diff = sp[i] - sp[j];
-            else
-                diff = sp[j] - sp[i];
-            if(diff > longest)
-                longest = diff;
-        }
-    }
-    return longest;
+    auto min_it = std::min_element(sp.begin(), sp.end());
+    auto max_it = std::max_element(sp.begin(), sp.end());
+    return std::abs(*max_it - *min_it); 
 }

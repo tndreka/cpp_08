@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 04:58:21 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 11:00:09 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/24 20:58:31 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <exception>
 #include <vector>
 #include <limits>
-
+#include <algorithm>
+#include <cstdlib> 
 class Span
 {
 private:
@@ -32,10 +33,24 @@ public:
     ~Span();
     //member functions
     void addNumber(int number);
+    
     unsigned int shortestSpan();
     unsigned int longestSpan();
     //debug
     void print_vect() const;
+    //Addnum range based.
+    template <typename InputIterator>
+    void addNumber(InputIterator begin, InputIterator end)
+    {
+        while (begin != end)
+        {
+            if(count >= size)
+                throw Outofrange();
+            sp.push_back(*begin);
+            count++;
+            ++begin;
+        }
+    }
     //helper function
     template<typename T>
     void insert(T first, T last)
