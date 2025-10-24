@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:06:14 by tndreka           #+#    #+#             */
-/*   Updated: 2025/10/18 07:33:59 by tndreka          ###   ########.fr       */
+/*   Updated: 2025/10/24 20:48:40 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <exception>
 #include <vector> // for vector container
 #include <list>
-
+#include <algorithm>//for std::find()
 class Nomatch:public std::exception
 {
     public:
@@ -32,14 +32,15 @@ class Nomatch:public std::exception
 template<typename T>
 typename T::iterator easyfind(T& container, int value)
 {
-    for (typename T::iterator i = container.begin(); i != container.end(); ++i)
-        {
-            if (*i == value)
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+    //for (typename T::iterator i = container.begin(); i != container.end(); ++i)
+        //{
+            if (it == container.end())
             {
-                return i;
+                throw Nomatch();
             }
-        }
-        throw Nomatch();
+        //}
+        return it;
 }
 
 #endif
